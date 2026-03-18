@@ -523,6 +523,15 @@ export default function ProjectPage() {
 
           <Button
             size="sm"
+            variant="ghost"
+            className="shrink-0"
+            onClick={() => setShowAddFile(true)}
+          >
+            + Add File
+          </Button>
+
+          <Button
+            size="sm"
             className="shrink-0 uppercase tracking-[0.24em]"
             loading={isRunningAll}
             disabled={!selectedFile || isRunningAll || savingFile}
@@ -570,7 +579,24 @@ export default function ProjectPage() {
                 <CodeViewer value={editorContent} onChange={setEditorContent} />
               </div>
             ) : (
-              <div className="flex h-full items-center justify-center text-[#555d70]">Select a file to view</div>
+              <div className="flex h-full items-center justify-center px-6">
+                <div className="w-full max-w-md rounded-2xl border border-dashed border-[rgba(255,255,255,0.12)] bg-[#111318] px-6 py-10 text-center">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#181c24] text-2xl">
+                    ðŸ“„
+                  </div>
+                  <h2 className="font-display text-lg font-semibold text-[#e8eaf0]">
+                    {files.length === 0 ? 'Add your first file' : 'Select a file to view'}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-[#8a90a0]">
+                    {files.length === 0
+                      ? 'This project is empty right now. Add a code file to start editing and running analysis.'
+                      : 'Choose a file from the sidebar or add a new one to continue.'}
+                  </p>
+                  <Button className="mt-5" onClick={() => setShowAddFile(true)}>
+                    + Add File
+                  </Button>
+                </div>
+              </div>
             ))}
 
           {activeTab === 'history' && (
