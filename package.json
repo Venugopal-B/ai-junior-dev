@@ -1,0 +1,14 @@
+{
+  "name": "ai-junior-dev",
+  "version": "1.0.0",
+  "description": "AI Junior Developer — monorepo root",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "migrate": "cd backend && npm run migrate"
+  }
+}
